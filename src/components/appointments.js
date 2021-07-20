@@ -8,8 +8,17 @@ class Appointments {
 
 
     fetchAndLoadNotes() {
-        this.adapter.getAppointments().then(appointments => {
-            console.log(appointments)
+        this.adapter
+        .getAppointments()
+        .then(appointments => {
+            return console.log(appointments)
         })
+        .then(() => {
+            this.render()
+        })
+    }
+    render() {
+        const appointmentsContainer = document.getElementById('appointments-container');
+        appointmentsContainer.innerHTML = "my appointments"
     }
 }
