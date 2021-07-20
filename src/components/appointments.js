@@ -2,7 +2,7 @@ class Appointments {
     constructor() {
         this.appointments = []
         this.adapter = new AppointmentsAdapter()
-        this.bindEventListeners()
+        // this.bindEventListeners()
         this.fetchAndLoadNotes()
     }
 
