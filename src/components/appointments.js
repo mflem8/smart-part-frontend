@@ -6,12 +6,11 @@ class Appointments {
         this.fetchAndLoadNotes()
     }
 
-
     fetchAndLoadNotes() {
         this.adapter
         .getAppointments()
         .then(appointments => {
-            return console.log(appointments)
+            appointments.forEach(appt => this.appointments.push(appt))
         })
         .then(() => {
             this.render()
@@ -19,6 +18,6 @@ class Appointments {
     }
     render() {
         const appointmentsContainer = document.getElementById('appointments-container');
-        appointmentsContainer.innerHTML = "my appointments"
+        
     }
 }
