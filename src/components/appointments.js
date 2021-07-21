@@ -3,21 +3,26 @@ class Appointments {
         this.appointments = []
         this.adapter = new AppointmentsAdapter()
         // this.bindEventListeners()
-        this.fetchAndLoadNotes()
+        this.fetchAndLoadAppointments()
     }
 
-    fetchAndLoadNotes() {
+    fetchAndLoadAppointments() {
         this.adapter
         .getAppointments()
         .then(appointments => {
-            appointments.forEach(appt => this.appointments.push(appt))
+            appointments.forEach(appointment => this.appointments.push(new Appointment(appointment)))
         })
         .then(() => {
             this.render()
         })
     }
+
     render() {
-        const appointmentsContainer = document.getElementById('appointments-container');
+        const appointmentsContainer = document.getElementById('appointments-container')
+        appointmentsContainer.innerHTML = this.appointments.map(appointment => `<li>${appointment.day}</li>`).join('')
+        console.log(apptsString)
         
+        // appointmentsContainer.innerHTML = `${}`
+
     }
 }

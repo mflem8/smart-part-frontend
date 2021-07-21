@@ -4,9 +4,8 @@ class AppointmentsAdapter {
     }
 
     getAppointments() {
-        return fetch(this.baseUrl).then(res => res.json()
-        )
+        return fetch(this.baseUrl).then(res => res.json())
     }
 }
 
-adapter = new AppointmentsAdapter()
+// adapter = new AppointmentsAdapter()
