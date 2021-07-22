@@ -8,6 +8,19 @@ class Appointments {
 
     initBindingsAndEventListeners() {
         this.appointmentsContainer = document.getElementById('appointments-container')
+        this.newAppointmentValue = document.getElementById('new-appointment-value')
+        this.appointmentForm = document.getElementById('new-appointment-form')
+        this.appointmentForm.addEventListener('submit', this.createAppointment.bind(this))
+    }
+
+    createAppointment(e) {
+        
+        e.preventDefault()
+        const apptValue = this.newAppointmentValue.value
+        this.adapter.createAppointment(apptValue).then(appt => {
+            this.appointments.push(new Appointment(appt))
+            this.render()
+        })
     }
 
     fetchAndLoadAppointments() {
