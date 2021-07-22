@@ -2,8 +2,12 @@ class Appointments {
     constructor() {
         this.appointments = []
         this.adapter = new AppointmentsAdapter()
-        // this.bindEventListeners()
+        this.initBindingsAndEventListeners()
         this.fetchAndLoadAppointments()
+    }
+
+    initBindingsAndEventListeners() {
+        this.appointmentsContainer = document.getElementById('appointments-container')
     }
 
     fetchAndLoadAppointments() {
@@ -19,10 +23,7 @@ class Appointments {
 
     render() {
         const appointmentsContainer = document.getElementById('appointments-container')
-        appointmentsContainer.innerHTML = this.appointments.map(appointment => `<li>${appointment.day}</li>`).join('')
-        console.log(apptsString)
-        
-        // appointmentsContainer.innerHTML = `${}`
+        this.appointmentsContainer.innerHTML = this.appointments.map(appointment => appointment.renderLi()).join('')
 
     }
 }
